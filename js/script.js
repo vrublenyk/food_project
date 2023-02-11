@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     // Timer
-    const deadline = '2023-02-10';  // создаем переменную в которой указываем дату до какого числа будет работать щетчик
+    const deadline = '2023-02-17';  // создаем переменную в которой указываем дату до какого числа будет работать щетчик
 
     function getTimeRemaining(endtime){
         let days, hours, minutes, seconds; 
@@ -465,7 +465,25 @@ window.addEventListener('DOMContentLoaded', () => {
         return  +str.replace(/\D/g, '');
     }
     
+    // calculator
 
+    const result = document.querySelector('.calculating__result span');
+    let sex, height, weight, age, ratio;
 
+    function calcTotal() {
+        if (!sex || !height || !weight ||!age || !ratio) {
+            result.textContent = `____`;
+            return
+        }
+
+        if (sex === 'female'){
+            result.textContent = (88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio;
+        } else {
+            result.textContent = (447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio;
+        }
+
+    }
+
+    calcTotal();
 
 });
